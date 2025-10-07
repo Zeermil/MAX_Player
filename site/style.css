@@ -1,0 +1,267 @@
+:root {
+    --bg: #0f1115;
+    --panel: #171a21;
+    --text: #e8e8e8;
+    --muted: #a6a6a6;
+    --accent: #8ab4f8;
+    --accent-2: #6aa2ff;
+    --danger: #ff6a6a;
+    --ok: #86efac;
+}
+
+* {
+    box-sizing: border-box;
+}
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.header {
+    padding: 16px 20px;
+    background: var(--panel);
+    border-bottom: 1px solid #232838;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.subtitle {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.player {
+    background: var(--panel);
+    border: 1px solid #232838;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cover {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #0b0d12;
+    margin: 0 auto;
+    border: 1px solid #232838;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.now-title {
+    font-weight: 600;
+    font-size: 18px;
+    text-align: center;
+}
+
+.time-display {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    font-size: 14px;
+}
+
+.progress-container {
+    width: 100%;
+    margin: 8px 0;
+}
+
+#progress {
+    width: 100%;
+    height: 6px;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+.controls {
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.playback-controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+}
+
+.control-btn {
+    background: #222838;
+    color: var(--text);
+    border: 1px solid #2a3146;
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+    border-color: var(--accent);
+    background: #2a3146;
+}
+
+.play-pause {
+    background: var(--accent);
+    border-color: var(--accent);
+    padding: 12px 14px;
+}
+
+.play-pause:hover {
+    background: var(--accent-2);
+    border-color: var(--accent-2);
+}
+
+.volume-controls input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+}
+
+.playlist-section {
+    margin-top: 24px;
+}
+
+.playlist-section h2 {
+    margin: 0 0 12px;
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.playlist {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #232838;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.playlist li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border-bottom: 1px solid #232838;
+    background: #12151d;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.playlist li:last-child {
+    border-bottom: none;
+}
+
+.playlist li:hover {
+    background: #161a23;
+}
+
+.playlist .index {
+    width: 16px;
+    text-align: center;
+    color: var(--muted);
+}
+
+.playlist .name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.playlist .ext {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.playlist li.active {
+    background: #192033;
+    border-left: 3px solid var(--accent);
+    padding-left: 9px;
+}
+
+.hint {
+    color: var(--muted);
+    padding: 16px;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .container {
+        margin: 16px auto;
+        padding: 0 12px;
+    }
+
+    .player {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .cover {
+        max-width: 200px;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .volume-controls {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .playback-controls {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .playback-controls {
+        gap: 8px;
+    }
+
+    .control-btn {
+        padding: 8px 10px;
+    }
+
+    .play-pause {
+        padding: 10px 12px;
+    }
+}
